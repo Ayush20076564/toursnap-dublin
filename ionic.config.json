@@ -1,0 +1,7 @@
+{
+  "name": "toursnap-dublin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
