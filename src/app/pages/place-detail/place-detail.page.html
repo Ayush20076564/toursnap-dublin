@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-icon name="location-outline" class="title-icon"></ion-icon>
+      Place
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/journal">
+        <ion-icon slot="icon-only" name="book-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/safety">
+        <ion-icon slot="icon-only" name="shield-checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-pad" *ngIf="place; else missing">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ place.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <ion-badge color="medium">{{ place.category }}</ion-badge>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="desc">{{ place.shortDesc }}</p>
+
+        <ion-item lines="none">
+          <ion-icon name="bulb-outline" slot="start"></ion-icon>
+          <ion-label>
+            <b>Tip:</b> {{ place.tips || 'No tips added yet.' }}
+          </ion-label>
+        </ion-item>
+
+        <div class="btn-row">
+          <ion-button expand="block" (click)="openNavigate()">
+            <ion-icon name="navigate-outline" slot="start"></ion-icon>
+            Navigate
+          </ion-button>
+
+        <ion-button expand="block" fill="outline" [routerLink]="['/journal-edit', place.id]">
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+         Add to Journal
+          </ion-button>
+
+
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #missing>
+    <div class="page-pad">
+      <ion-text color="medium">Place not found.</ion-text>
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/places">
+        <ion-icon slot="icon-only" name="map-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-icon name="shield-checkmark-outline" class="title-icon"></ion-icon>
+      Safety Buddy
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/journal">
+        <ion-icon slot="icon-only" name="book-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-pad">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Trusted Contact</ion-card-title>
+        <ion-card-subtitle>Pick someone from Contacts</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h2>{{ buddy?.name || 'Not selected' }}</h2>
+            <p>{{ buddy?.phone || 'Choose a buddy to enable quick call' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-button expand="block" fill="outline" (click)="pickBuddy()">
+          <ion-icon name="people-outline" slot="start"></ion-icon>
+          Select Buddy (Contacts)
+        </ion-button>
+
+        <ion-button expand="block" [disabled]="!buddy" (click)="callBuddy()">
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+          Call Buddy
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sos-card">
+      <ion-card-header>
+        <ion-card-title>SOS</ion-card-title>
+        <ion-card-subtitle>Vibrate + generate location link</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button expand="block" color="danger" (click)="sos()">
+          <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+          SOS (Haptics/Vibration)
+        </ion-button>
+
+        <ion-item *ngIf="locationText" lines="full">
+          <ion-icon name="location-outline" slot="start"></ion-icon>
+          <ion-label class="mono">
+            {{ locationText }}
+          </ion-label>
+        </ion-item>
+
+        <ion-button expand="block" fill="outline" [disabled]="!locationText" (click)="copyLocation()">
+          <ion-icon name="copy-outline" slot="start"></ion-icon>
+          Copy Location
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "trinity",
+    "name": "Trinity College Dublin",
+    "category": "Museum",
+    "lat": 53.3438,
+    "lng": -6.2546,
+    "shortDesc": "Historic university with the Book of Kells.",
+    "tips": "Go early to avoid queues. Walk around College Green.",
+    "tags": ["history", "city-centre", "must-see"]
+  },
+  {
+    "id": "guinness",
+    "name": "Guinness Storehouse",
+    "category": "Food",
+    "lat": 53.3419,
+    "lng": -6.2869,
+    "shortDesc": "Ireland’s iconic brewery experience with skyline views.",
+    "tips": "Book tickets online for faster entry.",
+    "tags": ["views", "brewery", "popular"]
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix Park",
+    "category": "Nature",
+    "lat": 53.3550,
+    "lng": -6.3290,
+    "shortDesc": "One of Europe’s largest city parks—often with deer!",
+    "tips": "Best in the morning; bring water and comfy shoes.",
+    "tags": ["outdoors", "free", "walk"]
+  },
+  {
+    "id": "templebar",
+    "name": "Temple Bar",
+    "category": "Culture",
+    "lat": 53.3456,
+    "lng": -6.2642,
+    "shortDesc": "Famous area for pubs, street music, and vibes.",
+    "tips": "Great for photos; can be busy at night.",
+    "tags": ["nightlife", "music", "photos"]
+  }
+]

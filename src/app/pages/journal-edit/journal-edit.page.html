@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Journal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" [disabled]="saving">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        Save
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-pad">
+    <ion-card *ngIf="place">
+      <ion-card-header>
+        <ion-card-title>{{ place.name }}</ion-card-title>
+        <ion-card-subtitle>{{ place.category }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p class="muted">{{ place.shortDesc }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Your note</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-textarea
+          [(ngModel)]="note"
+          autoGrow="true"
+          placeholder="Write your travel note..."
+        ></ion-textarea>
+
+        <ion-button expand="block" fill="outline" (click)="addPhoto()">
+          <ion-icon name="camera-outline" slot="start"></ion-icon>
+          Add Photo
+        </ion-button>
+
+        <!-- Preview thumbnails -->
+        <div class="thumb-row" *ngIf="photos.length">
+          <div class="thumb" *ngFor="let p of photos; let i = index">
+            <img [src]="p.previewSrc" alt="photo preview" />
+            <ion-button size="small" color="danger" (click)="removePhoto(i)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+
+        <ion-button expand="block" (click)="save()" [disabled]="saving">
+          <ion-icon name="save-outline" slot="start"></ion-icon>
+          Save (Filesystem)
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

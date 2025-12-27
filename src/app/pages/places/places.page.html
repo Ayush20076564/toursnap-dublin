@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <!-- Top bar -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/places" aria-label="Places">
+        <ion-icon slot="icon-only" name="map-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>TourSnap Dublin</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/journal" aria-label="Journal">
+        <ion-icon slot="icon-only" name="book-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/safety" aria-label="Safety">
+        <ion-icon slot="icon-only" name="shield-checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Search + tabs -->
+  <ion-toolbar class="toolbar-secondary">
+    <ion-searchbar
+      [(ngModel)]="q"
+      (ionInput)="applyFilters()"
+      (ionClear)="clearSearch()"
+      debounce="150"
+      placeholder="Search places..."
+      showClearButton="always"
+      class="search"
+    ></ion-searchbar>
+
+    <ion-segment
+      [value]="category"
+      (ionChange)="onCategoryChange(($event.detail.value ?? 'all') + '')"
+      scrollable="true"
+      class="cats"
+    >
+      <ion-segment-button *ngFor="let c of tabs" [value]="c.key">
+        <ion-icon [name]="c.icon"></ion-icon>
+        <ion-label>{{ c.label }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-pad">
+    <ion-button expand="block" fill="outline" class="near-btn" (click)="sortByNearMe()">
+      <ion-icon name="locate-outline" slot="start"></ion-icon>
+      Near me
+    </ion-button>
+
+    <ion-skeleton-text *ngIf="loading" animated style="height: 120px;"></ion-skeleton-text>
+
+    <ion-list *ngIf="!loading" lines="none" class="places-list">
+      <ion-item
+        *ngFor="let p of filtered"
+        class="place-item"
+        button="true"
+        [routerLink]="['/place', p.id]"
+        detail="true"
+        detailIcon="chevron-forward-outline"
+      >
+        <ion-label>
+          <div class="row-top">
+            <div class="name">{{ p.name }}</div>
+            <ion-chip *ngIf="getKm(p.id) as km" class="km" color="medium">
+              <ion-label>{{ km }}</ion-label>
+            </ion-chip>
+          </div>
+
+          <div class="desc">{{ p.shortDesc }}</div>
+
+          <div class="chips">
+            <ion-chip class="cat">
+              <ion-label>{{ p.category }}</ion-label>
+            </ion-chip>
+
+            <ion-chip *ngFor="let t of (p.tags || []).slice(0, 2)" class="tag">
+              <ion-label>#{{ t }}</ion-label>
+            </ion-chip>
+          </div>
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="filtered.length === 0" lines="none" class="empty">
+        <ion-label>No places match your search.</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

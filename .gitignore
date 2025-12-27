@@ -68,3 +68,20 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Capacitor Android (keep android/ but ignore generated files)
+android/.gradle/
+android/build/
+android/app/build/
+android/app/release/
+android/app/debug/
+android/captures/
+android/.idea/
+android/.classpath
+android/.project
+android/*.iml
+android/local.properties
+
+# Optional: ignore APK/AAB outputs if they appear
+*.apk
+*.aab

@@ -35,3 +35,19 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+// Global polish
+ion-card {
+  border-radius: 16px;
+}
+
+ion-button {
+  border-radius: 14px;
+}
+
+ion-toolbar ion-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
