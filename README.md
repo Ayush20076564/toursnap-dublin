@@ -74,7 +74,7 @@ Windows cannot produce a real .ipa build directly (details below)
 1) Clone the repo  
 bash  
 Copy code
-git clone https://github.com/Ayush20076564/TourSnap-App.git  
+git clone [https://github.com/Ayush20076564/TourSnap-App.git](https://github.com/Ayush20076564/toursnap-dublin)  
 cd TourSnap-App  
 2) Install dependencies  
 bash  
