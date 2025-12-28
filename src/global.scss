@@ -51,3 +51,57 @@ ion-toolbar ion-title {
   align-items: center;
   gap: 8px;
 }
+
+ion-content {
+  --background: var(--app-bg);
+}
+
+ion-card {
+  background: var(--app-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+.page-pad {
+  padding: 16px;
+}
+
+.muted {
+  color: var(--app-muted);
+}
+
+ion-toolbar {
+  --background: linear-gradient(135deg, var(--ion-color-primary), #7c3aed);
+  --color: #fff;
+}
+
+ion-title, ion-toolbar ion-icon {
+  color: #fff !important;
+}
+
+/* Segment on gradient header */
+.category-segment {
+  --background: transparent;
+}
+
+.category-segment ion-segment-button {
+  /* unselected text/icon */
+  --color: rgba(255, 255, 255, 0.75);
+
+  /* selected text/icon */
+  --color-checked: #ffffff;
+
+  /* underline/indicator */
+  --indicator-color: #ffffff;
+  --indicator-height: 3px;
+
+  /* optional: highlight selected pill */
+  --background-checked: rgba(255, 255, 255, 0.12);
+  --border-radius: 12px;
+}
+
+/* Make sure label/icon follow the segment colors */
+.category-segment ion-label,
+.category-segment ion-icon {
+  color: inherit !important;
+}

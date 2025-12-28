@@ -6,8 +6,8 @@
     "lat": 53.3438,
     "lng": -6.2546,
     "shortDesc": "Historic university with the Book of Kells.",
-    "tips": "Go early to avoid queues. Walk around College Green.",
-    "tags": ["history", "city-centre", "must-see"]
+    "tips": "Go early to avoid queues. Walk around College Green and the Long Room (check availability).",
+    "tags": ["history", "city-centre", "must-see", "architecture", "book-of-kells"]
   },
   {
     "id": "guinness",
@@ -15,19 +15,19 @@
     "category": "Food",
     "lat": 53.3419,
     "lng": -6.2869,
-    "shortDesc": "Ireland’s iconic brewery experience with skyline views.",
-    "tips": "Book tickets online for faster entry.",
-    "tags": ["views", "brewery", "popular"]
+    "shortDesc": "Iconic brewery tour ending with skyline views at the Gravity Bar.",
+    "tips": "Book tickets online for faster entry. Aim for sunset time if you want great views.",
+    "tags": ["views", "brewery", "popular", "tickets", "photospot"]
   },
   {
     "id": "phoenix",
     "name": "Phoenix Park",
     "category": "Nature",
-    "lat": 53.3550,
-    "lng": -6.3290,
-    "shortDesc": "One of Europe’s largest city parks—often with deer!",
-    "tips": "Best in the morning; bring water and comfy shoes.",
-    "tags": ["outdoors", "free", "walk"]
+    "lat": 53.355,
+    "lng": -6.329,
+    "shortDesc": "Massive city park with deer, trails, and wide open spaces.",
+    "tips": "Best in the morning; bring water and comfy shoes. Keep distance from deer.",
+    "tags": ["outdoors", "free", "walk", "deer", "picnic"]
   },
   {
     "id": "templebar",
@@ -35,8 +35,229 @@
     "category": "Culture",
     "lat": 53.3456,
     "lng": -6.2642,
-    "shortDesc": "Famous area for pubs, street music, and vibes.",
-    "tips": "Great for photos; can be busy at night.",
-    "tags": ["nightlife", "music", "photos"]
+    "shortDesc": "Lively area for pubs, street music, and city vibes.",
+    "tips": "Great for photos; can be busy at night. Explore nearby streets for quieter spots.",
+    "tags": ["nightlife", "music", "photos", "busy", "city-centre"]
+  },
+
+  {
+    "id": "ststephensgreen",
+    "name": "St Stephen’s Green",
+    "category": "Nature",
+    "lat": 53.3382,
+    "lng": -6.2591,
+    "shortDesc": "Beautiful central park with lakes, flowers, and calm walking paths.",
+    "tips": "Perfect break between shopping and sightseeing. Visit in spring for blooms.",
+    "tags": ["park", "relax", "free", "city-centre", "walk"]
+  },
+  {
+    "id": "graftonstreet",
+    "name": "Grafton Street",
+    "category": "Culture",
+    "lat": 53.3419,
+    "lng": -6.2595,
+    "shortDesc": "Famous shopping street with buskers and lively energy.",
+    "tips": "Walk from St Stephen’s Green to Trinity area. Listen to buskers in the afternoon.",
+    "tags": ["shopping", "buskers", "city-centre", "street", "vibes"]
+  },
+  {
+    "id": "dublincastle",
+    "name": "Dublin Castle",
+    "category": "Museum",
+    "lat": 53.3429,
+    "lng": -6.2675,
+    "shortDesc": "Historic castle complex with state apartments and courtyards.",
+    "tips": "Great indoor option on rainy days. Combine with Chester Beatty nearby.",
+    "tags": ["history", "architecture", "tours", "city-centre"]
+  },
+  {
+    "id": "chesterbeatty",
+    "name": "Chester Beatty",
+    "category": "Museum",
+    "lat": 53.3424,
+    "lng": -6.2673,
+    "shortDesc": "Museum of manuscripts, art, and global collections (often free).",
+    "tips": "Check opening hours. The café is a nice quiet stop.",
+    "tags": ["free", "museum", "manuscripts", "culture", "hidden-gem"]
+  },
+  {
+    "id": "christchurch",
+    "name": "Christ Church Cathedral",
+    "category": "Culture",
+    "lat": 53.3434,
+    "lng": -6.271,
+    "shortDesc": "Iconic cathedral with medieval architecture and crypt.",
+    "tips": "Visit the crypt if open. Great spot for architecture lovers.",
+    "tags": ["cathedral", "history", "architecture", "city-centre"]
+  },
+  {
+    "id": "stpatrickcathedral",
+    "name": "St Patrick’s Cathedral",
+    "category": "Culture",
+    "lat": 53.3395,
+    "lng": -6.271,
+    "shortDesc": "Ireland’s largest cathedral with beautiful interiors and park nearby.",
+    "tips": "Pair with a walk in St Patrick’s Park for photos.",
+    "tags": ["cathedral", "architecture", "history", "photos"]
+  },
+  {
+    "id": "haPennybridge",
+    "name": "Ha’penny Bridge",
+    "category": "Culture",
+    "lat": 53.3472,
+    "lng": -6.2591,
+    "shortDesc": "Famous pedestrian bridge over the River Liffey.",
+    "tips": "Best photos early morning or golden hour. Great short walk along the Liffey.",
+    "tags": ["photospot", "river", "landmark", "free", "walk"]
+  },
+  {
+    "id": "customhouse",
+    "name": "Custom House Quay",
+    "category": "Culture",
+    "lat": 53.3486,
+    "lng": -6.2523,
+    "shortDesc": "Elegant riverside architecture and a peaceful waterside walk.",
+    "tips": "Nice area for evening strolls. Combine with Samuel Beckett Bridge.",
+    "tags": ["river", "architecture", "walk", "photospot"]
+  },
+  {
+    "id": "samuelbeckettbridge",
+    "name": "Samuel Beckett Bridge",
+    "category": "Culture",
+    "lat": 53.3478,
+    "lng": -6.2406,
+    "shortDesc": "Modern cable-stayed bridge shaped like a harp.",
+    "tips": "Great night photos when the city lights reflect on the water.",
+    "tags": ["modern", "photospot", "river", "walk"]
+  },
+  {
+    "id": "epicmuseum",
+    "name": "EPIC The Irish Emigration Museum",
+    "category": "Museum",
+    "lat": 53.3475,
+    "lng": -6.2449,
+    "shortDesc": "Interactive museum exploring Irish emigration stories.",
+    "tips": "Good family-friendly indoor activity. Allow 1–2 hours.",
+    "tags": ["interactive", "museum", "history", "indoor"]
+  },
+  {
+    "id": "kilmainhamgaol",
+    "name": "Kilmainham Gaol",
+    "category": "Museum",
+    "lat": 53.3422,
+    "lng": -6.3091,
+    "shortDesc": "Historic prison museum tied to Ireland’s independence story.",
+    "tips": "Tickets sell out—book ahead. Combine with IMMA nearby.",
+    "tags": ["history", "tours", "must-see", "tickets"]
+  },
+  {
+    "id": "imma",
+    "name": "IMMA (Irish Museum of Modern Art)",
+    "category": "Museum",
+    "lat": 53.343,
+    "lng": -6.3056,
+    "shortDesc": "Modern art museum in a beautiful historic building and gardens.",
+    "tips": "Check exhibitions; the gardens are lovely for a calm walk.",
+    "tags": ["modern-art", "museum", "gardens", "culture"]
+  },
+  {
+    "id": "howthcliffs",
+    "name": "Howth Cliff Walk",
+    "category": "Nature",
+    "lat": 53.387,
+    "lng": -6.065,
+    "shortDesc": "Coastal cliff walk with stunning sea views near Dublin.",
+    "tips": "Bring a jacket—windy even in summer. Great day trip by DART.",
+    "tags": ["coast", "hike", "views", "day-trip", "outdoors"]
+  },
+  {
+    "id": "howthharbour",
+    "name": "Howth Harbour",
+    "category": "Food",
+    "lat": 53.389,
+    "lng": -6.064,
+    "shortDesc": "Harbour with seafood spots, boats, and relaxing sea views.",
+    "tips": "Try fish & chips. Visit after the cliff walk for sunset.",
+    "tags": ["seafood", "coast", "day-trip", "views"]
+  },
+  {
+    "id": "dunlaoghairepier",
+    "name": "Dún Laoghaire Pier",
+    "category": "Nature",
+    "lat": 53.2947,
+    "lng": -6.1347,
+    "shortDesc": "Long coastal pier walk with fresh sea air and views.",
+    "tips": "Perfect for an easy walk. Great on clear evenings.",
+    "tags": ["coast", "walk", "free", "views", "day-trip"]
+  },
+  {
+    "id": "nationalgallery",
+    "name": "National Gallery of Ireland",
+    "category": "Museum",
+    "lat": 53.3409,
+    "lng": -6.2525,
+    "shortDesc": "Major art gallery with Irish and European masterpieces (often free).",
+    "tips": "Great rainy-day spot. Check if special exhibitions require tickets.",
+    "tags": ["free", "art", "museum", "indoor", "city-centre"]
+  },
+  {
+    "id": "nationalmuseumarchaeology",
+    "name": "National Museum of Ireland (Archaeology)",
+    "category": "Museum",
+    "lat": 53.3407,
+    "lng": -6.2543,
+    "shortDesc": "Fascinating archaeology museum with Celtic artifacts (often free).",
+    "tips": "Don’t miss the bog bodies section. Good for 1–2 hours.",
+    "tags": ["free", "history", "museum", "celtic", "indoor"]
+  },
+  {
+    "id": "littlemuseum",
+    "name": "The Little Museum of Dublin",
+    "category": "Museum",
+    "lat": 53.3399,
+    "lng": -6.2603,
+    "shortDesc": "Small museum packed with Dublin stories and quirky objects.",
+    "tips": "Guided tours are fun and short. Great if you’re limited on time.",
+    "tags": ["small", "history", "guided-tour", "city-centre"]
+  },
+  {
+    "id": "teeling",
+    "name": "Teeling Whiskey Distillery",
+    "category": "Food",
+    "lat": 53.3406,
+    "lng": -6.276,
+    "shortDesc": "Modern whiskey distillery experience in the Liberties.",
+    "tips": "Book ahead if you want a tasting session. Great alternative to Guinness.",
+    "tags": ["whiskey", "tour", "tasting", "tickets"]
+  },
+  {
+    "id": "stoneybatter",
+    "name": "Stoneybatter",
+    "category": "Food",
+    "lat": 53.3526,
+    "lng": -6.2783,
+    "shortDesc": "Trendy neighbourhood with cafés, pubs, and local food spots.",
+    "tips": "Great for brunch. Explore side streets for hidden cafés.",
+    "tags": ["cafes", "brunch", "local", "neighbourhood"]
+  },
+  {
+    "id": "powescourtcentre",
+    "name": "Powerscourt Townhouse Centre",
+    "category": "Culture",
+    "lat": 53.3403,
+    "lng": -6.2585,
+    "shortDesc": "Elegant shopping and café spot inside a Georgian townhouse.",
+    "tips": "Nice indoor stop near Grafton Street. Great for a coffee break.",
+    "tags": ["shopping", "coffee", "architecture", "city-centre"]
+  },
+  {
+    "id": "merrionsquare",
+    "name": "Merrion Square",
+    "category": "Nature",
+    "lat": 53.339,
+    "lng": -6.249,
+    "shortDesc": "Georgian square with a peaceful park and city history nearby.",
+    "tips": "Great spot for a calm break. Nearby museums make it easy to combine.",
+    "tags": ["park", "architecture", "relax", "walk", "city-centre"]
   }
 ]

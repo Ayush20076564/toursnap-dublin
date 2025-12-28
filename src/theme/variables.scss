@@ -1,2 +1,37 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+
+
+
+/* App custom theme variables */
+:root {
+  --app-bg: #f5f6fa;
+  --app-card: #ffffff;
+  --app-muted: #6b7280;
+
+  /* Force readable text in light mode */
+  --ion-text-color: #111827;
+  --ion-color-step-850: #111827; /* helps some components */
+}
+
+/* When system is dark, switch your app colors too */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #0b1220;
+    --app-card: #121a2b;
+    --app-muted: #9ca3af;
+
+    --ion-text-color: #f9fafb;
+    --ion-color-step-850: #f9fafb;
+  }
+
+}
+ion-card,
+ion-card-title,
+ion-card-subtitle,
+ion-label,
+ion-text,
+p, h1, h2, h3, h4, h5, h6 {
+  color: var(--ion-text-color);
+}
+
