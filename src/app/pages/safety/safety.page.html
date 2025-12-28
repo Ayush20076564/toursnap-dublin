@@ -32,7 +32,7 @@
           <ion-icon name="person-circle-outline" slot="start"></ion-icon>
           <ion-label>
             <h2>{{ buddy?.name || 'Not selected' }}</h2>
-            <p>{{ buddy?.phone || 'Choose a buddy to enable quick call' }}</p>
+            <p>{{ buddy?.phone || 'Choose a buddy to enable quick call / SMS' }}</p>
           </ion-label>
         </ion-item>
 
@@ -51,14 +51,20 @@
     <ion-card class="sos-card">
       <ion-card-header>
         <ion-card-title>SOS</ion-card-title>
-        <ion-card-subtitle>Vibrate + generate location link</ion-card-subtitle>
+        <ion-card-subtitle>Vibrate + send SMS with your location</ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content>
-        <ion-button expand="block" color="danger" (click)="sos()">
+        <ion-button expand="block" color="danger" (click)="sos()" [disabled]="!buddy">
           <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
-          SOS (Haptics/Vibration)
+          SOS (Send SMS + Location)
         </ion-button>
+
+        <ion-text color="medium" *ngIf="!buddy">
+          <p style="margin-top: 8px;">
+            Select a buddy first to enable SOS messaging.
+          </p>
+        </ion-text>
 
         <ion-item *ngIf="locationText" lines="full">
           <ion-icon name="location-outline" slot="start"></ion-icon>
@@ -67,7 +73,12 @@
           </ion-label>
         </ion-item>
 
-        <ion-button expand="block" fill="outline" [disabled]="!locationText" (click)="copyLocation()">
+        <ion-button
+          expand="block"
+          fill="outline"
+          [disabled]="!locationText"
+          (click)="copyLocation()"
+        >
           <ion-icon name="copy-outline" slot="start"></ion-icon>
           Copy Location
         </ion-button>

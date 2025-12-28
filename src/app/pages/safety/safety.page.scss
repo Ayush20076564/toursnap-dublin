@@ -1,17 +1,134 @@
 .title-icon {
   margin-right: 8px;
   vertical-align: -2px;
+  font-size: 18px;
 }
 
 .page-pad {
-  padding: 12px;
+  padding: 14px;
 }
 
+/* Make cards feel more modern */
+ion-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+ion-card-title {
+  font-weight: 700;
+}
+
+ion-card-subtitle {
+  opacity: 0.85;
+}
+
+/* Trusted contact card: subtle blue accent */
+ion-card:not(.sos-card) {
+  border-left: 5px solid rgba(56, 128, 255, 0.65); /* Ionic primary-ish */
+}
+
+/* SOS card: strong red accent + soft tint */
 .sos-card {
-  margin-top: 14px;
+  margin-top: 16px;
+  border-left: 6px solid rgba(235, 68, 90, 0.85); /* Ionic danger */
+  background: linear-gradient(
+    135deg,
+    rgba(235, 68, 90, 0.06),
+    rgba(255, 255, 255, 1)
+  );
+}
+
+/* Make the SOS button pop */
+.sos-card ion-button[color="danger"] {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  --border-radius: 14px;
+  --box-shadow: 0 10px 22px rgba(235, 68, 90, 0);
+}
+
+/* Nice spacing between buttons */
+ion-button {
+  margin-top: 10px;
+  --border-radius: 14px;
+}
+
+/* Give the location output a "code chip" feel */
+ion-item {
+  --border-radius: 12px;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.35;
 }
+
+/* Make icons slightly more visible */
+ion-icon {
+  font-size: 18px;
+}
+
+/* Optional: nicer label spacing inside ion-item */
+ion-item ion-label h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+ion-item ion-label p {
+  margin: 4px 0 0;
+  opacity: 0.8;
+}
+
+/* ---------- Dark mode fixes ---------- */
+@media (prefers-color-scheme: dark) {
+  /* Cards should not be bright white in dark mode */
+  ion-card {
+    background: #121a2b;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Keep SOS card tint but not white */
+  .sos-card {
+    background: linear-gradient(
+      135deg,
+      rgba(235, 68, 90, 0.14),
+      rgba(18, 26, 43, 1)
+    );
+  }
+
+  /* Your ion-item background is too subtle in dark mode */
+  ion-item {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Make labels readable */
+  ion-card-title,
+  ion-card-subtitle,
+  ion-item,
+  ion-item ion-label,
+  ion-item ion-label h2,
+  ion-item ion-label p {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  /* ✅ Make the COPY LOCATION outline button visible even when disabled */
+  .copy-btn {
+    --color: rgba(255, 255, 255, 0.92);
+    --border-color: rgba(255, 255, 255, 0.55);
+    --background: rgba(255, 255, 255, 0.06);
+  }
+
+  .copy-btn[disabled] {
+    opacity: 1; /* stop Ionic from fading it too much */
+    --color: rgba(255, 255, 255, 0.55);
+    --border-color: rgba(255, 255, 255, 0.30);
+    --background: rgba(255, 255, 255, 0.03);
+  }
+}
+
