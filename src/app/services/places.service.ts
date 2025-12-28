@@ -12,6 +12,7 @@ export type Place = {
   shortDesc: string;
   tips?: string;
   tags?: string[];
+  image?: string;
 };
 
 @Injectable({ providedIn: 'root' })

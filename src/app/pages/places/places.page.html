@@ -63,6 +63,15 @@
         detail="true"
         detailIcon="chevron-forward-outline"
       >
+        <!-- ✅ NEW: thumbnail on the left -->
+        <ion-thumbnail slot="start" class="place-thumb">
+          <img
+            [src]="p.image || ('assets/places/default.jpg')"
+            alt="place image"
+            loading="lazy"
+          />
+        </ion-thumbnail>
+
         <ion-label>
           <div class="row-top">
             <div class="name">{{ p.name }}</div>

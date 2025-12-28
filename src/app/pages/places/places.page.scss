@@ -71,3 +71,15 @@ ion-chip.km {
   opacity: 0.8;
   text-align: center;
 }
+.place-thumb {
+  --size: 58px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.place-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
