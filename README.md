@@ -94,6 +94,7 @@ android/app/src/main/AndroidManifest.xml
   
 Add required permissions inside <manifest>:  
 
+ ```xml
  <uses-permission android:name="android.permission.INTERNET" />  
     <uses-permission android:name="android.permission.VIBRATE" />  
     <uses-permission android:name="android.permission.READ_CONTACTS" />  
@@ -104,13 +105,16 @@ Add required permissions inside <manifest>:
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />  
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
 <uses-permission android:name="android.permission.CAMERA" />    
-<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />    
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+```
+
 
 
 Note: On older Android versions you may also need:  
-
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />  
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
 
  iOS Setup  
 1) Add iOS platform  
