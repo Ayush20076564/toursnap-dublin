@@ -86,6 +86,7 @@ This runs the app as a web app at a local URL.
 ## Android Setup    
 npm install  
 ionic build  
+npx cap add android
 npx cap sync android  
 npx cap open android  
 
