@@ -1,131 +1,169 @@
-# TourSnap-App
-A simple Ionic + Angular travel companion app that lets users browse places, view place details, and create/edit offline journal entries with notes and photos. It includes a clean UI with modal-based entry viewing, safe navigation between pages, and local storage/file saving so the journal works even without internet.
-A simple Ionic + Angular mobile app to explore places and save personal travel journal entries offline (notes + photos). Built with Capacitor so it can run as a web app, Android app, and (with a Mac) iOS app.  
+# TourSnap App 🌍📸  
+A simple **Ionic + Angular** travel companion app that lets users **browse places**, view details, and create/edit **offline journal entries** with notes and photos. Built with **Capacitor**, so it can run on **Web**, **Android**, and **iOS** (macOS required for iOS).
 
 ---
 
-## ✨ What this app does  
+##  What this app does  
 TourSnap helps you:  
 - Browse a list of places  
 - Open a place to view details  
-- Add a journal entry for a place (note + photos)  
+- Add a journal entry for a place (**notes + photos**)  
 - View all saved journal entries  
-- Open a journal entry in a modal (expanded view)  
-- Edit an existing journal entry  
-- Delete a journal entry  
-- Save everything **offline** on the device (local storage + filesystem)  
-  
+- Open a journal entry in a modal (**expanded view**)  
+- Edit or delete an existing journal entry  
+- Store everything **offline** using local storage + filesystem  
+
 ---  
-
-## ✅ Features  
+  
+##  Features  
+  
 ### Places  
-- Places list page  
-- Place detail page (name, category, description, tips)  
-- “Add to Journal” from place detail  
-
+- Places list page    
+- Place detail page (name, category, description, tips)    
+- “Add to Journal” action from the place detail page    
+  
 ### Journal  
-- Journal list page showing saved entries  
-- Expanded entry preview using **IonModal**  
-- “Edit Journal” opens journal-edit page correctly (modal closes before navigation)  
-- “Delete” with confirmation using **AlertController**  
-- Photo preview thumbnails in journal edit page  
-- Offline-first: entries and photo files persist locally  
-
+- Journal list page showing saved entries    
+- Expanded entry preview using **IonModal**    
+- Safe navigation: modal closes before routing to Edit page    
+- Delete entry with confirmation using **AlertController**   
+- Photo preview thumbnails in edit page    
+- Offline-first: entries + photo files persist locally    
+  
 ### Safety  
 - Safety / SOS page (navigation included)  
-
+  
 ---  
-
-## 🧰 Tech Stack
-- **Ionic Framework** (UI components like ion-card, ion-modal, ion-button)  
-- **Angular** (standalone pages, routing, services)  
+  
+## 🧰 Tech Stack  
+- **Ionic Framework** (UI components like `ion-card`, `ion-modal`, `ion-button`)  
+- **Angular** (routing, services, standalone pages)  
 - **Capacitor** (native bridge for Android/iOS)  
-- **Filesystem (Capacitor plugin)** for storing photos offline  
+- **Capacitor Filesystem** (store photos offline)  
   
----  
+---
   
-## 📦 Project Requirements  
-Make sure you have these installed:  
-  
-### Required (Web + Android dev)  
+##  Requirements  
+ 
+### Web + Android  
 - **Node.js** (recommended LTS)  
-- **npm**  
+- **npm**    
 - **Ionic CLI**  
   ```bash  
   npm i -g @ionic/cli  
-Angular CLI (optional but useful)  
-  
-  
+
+  (Optional) Angular CLI  
+
 npm i -g @angular/cli  
-For Android builds  
-Android Studio  
 
-Android SDK / platform tools  
 
-JAVA (Android Studio bundles its own usually)  
+Android Studio (for APK builds)  
 
-For iOS builds  
-✅ You must use macOS + Xcode  
+iOS  
+ macOS + Xcode required  
 
-Windows cannot produce a real .ipa build directly (details below)  
+CocoaPods  
 
+sudo gem install cocoapods  
+
+
+ Windows cannot build a real .ipa directly. You must use macOS + Xcode for iOS builds.  
+ 
 🚀 Getting Started (Run Locally)  
 1) Clone the repo  
-Copy code
-git clone [https://github.com/Ayush20076564/TourSnap-App.git](https://github.com/Ayush20076564/toursnap-dublin)  
-cd TourSnap-App  
+git clone https://github.com/Ayush20076564/toursnap-dublin  
+cd TourSnap-App    
+  
 2) Install dependencies  
-
 npm install  
+
 3) Run in browser  
-
 ionic serve  
-This runs the app as a web app at a local URL.  
-
-## Android Setup    
-npm install  
+  
+ Android Setup  
+1) Build and add Android platform  
 ionic build  
 npx cap add android  
 npx cap sync android  
-npx cap open android  
+npx cap open android   
+  
+2) Add Android permissions (Camera / Storage)  
+  
+Edit:  
+android/app/src/main/AndroidManifest.xml  
+  
+Add required permissions inside <manifest>:  
 
-Add uses-permissions in app/main/androidfest.xml
+<uses-permission android:name="android.permission.CAMERA" />  
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />  
 
-## Icons + Splash Screen  
 
-If the project includes a resources/ folder with:  
+Note: On older Android versions you may also need:  
+
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />  
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
+
+ iOS Setup  
+1) Add iOS platform  
+ionic build  
+npx cap add ios  
+npx cap sync ios  
+npx cap open ios  
+
+2) Add iOS permissions (Camera / Photos)  
+
+Open the iOS project in Xcode, then update:  
+ios/App/App/Info.plist  
+
+Add these keys:  
+
+NSCameraUsageDescription  
+
+NSPhotoLibraryUsageDescription  
+
+Example:  
+
+<key>NSCameraUsageDescription</key>  
+<string>We need camera access to take photos for your journal entries.</string>  
+<key>NSPhotoLibraryUsageDescription</key>  
+<string>We need photo library access to attach photos to your journal entries.</string>  
+
+🎨 App Icons + Splash Screen  
+  
+If your project includes:  
+  
 resources/icon.png  
+  
 resources/splash.png  
-
-## Generate assets:  
+  
+Generate assets  
 npm install -D @capacitor/assets  
 npx capacitor-assets generate  
+
+Sync to platforms  
 npx cap sync android  
-  
-## Generate APK   
-Open Android Studio:  
+npx cap sync ios  
+
+📱 Generate APK (Android)  
+1) Open Android Studio  
 npx cap open android  
-Go to: Build → Build Bundle(s) / APK(s) → Build APK(s)  
-Click Locate  
-APK output path (commonly):  
+
+2) Build APK  
+
+In Android Studio:  
+
+Build → Build Bundle(s) / APK(s) → Build APK(s)  
+
+Click Locate after the build finishes  
+
+Common output path:  
+
 android/app/build/outputs/apk/debug/app-debug.apk  
 
+📌 Notes  
 
+Journal entries are stored offline (local storage + filesystem)  
 
-## IOS Setup  
-npm install  
-npm install -g @ionic/cli  
-sudo gem install cocoapods  
-npx cap add ios  
-ionic build  
-npx cap sync ios  
+Photos are saved locally so entries work without internet  
 
-
-## Icons + Splash Screen 
-
-resources/icon.png  
-resources/splash.png  
-Generate assets:  
-npm install -D @capacitor/assets  
-npx capacitor-assets generate  
-npx cap sync ios  
+Navigation is handled safely (modal closes before routing)  
