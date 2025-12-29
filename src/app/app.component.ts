@@ -9,6 +9,7 @@ import {
   AlertController,
 } from '@ionic/angular';
 import { App } from '@capacitor/app';
+import { SplashScreen } from '@capacitor/splash-screen'; // ✅ add
 
 @Component({
   selector: 'app-root',
@@ -19,24 +20,35 @@ import { App } from '@capacitor/app';
 export class AppComponent {
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet!: IonRouterOutlet;
 
-  // Pages where back button should EXIT the app
   private readonly rootRoutes = ['/places'];
 
   constructor(
     private platform: Platform,
     private router: Router,
-
     private modalCtrl: ModalController,
     private popoverCtrl: PopoverController,
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController
   ) {
-    this.setupHardwareBackButton();
+    this.platform.ready().then(() => {
+      this.keepSplashForMoment(); // ✅ add
+      this.setupHardwareBackButton();
+    });
+  }
+
+  private async keepSplashForMoment() {
+    try {
+      // keep it visible for 1.5 sec (change to 1000 or 2000)
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 1500);
+    } catch (e) {
+      // ignore if plugin not available (web)
+    }
   }
 
   private setupHardwareBackButton() {
     this.platform.backButton.subscribeWithPriority(9999, async () => {
-      // 1) Close overlays first (modal/popover/actionsheet/alert)
       const topModal = await this.modalCtrl.getTop();
       if (topModal) {
         await topModal.dismiss();
@@ -61,20 +73,17 @@ export class AppComponent {
         return;
       }
 
-      // 2) If we can go back in Ionic stack, go back
       if (this.routerOutlet?.canGoBack()) {
         await this.routerOutlet.pop();
         return;
       }
 
-      // 3) If on root route, exit app
       const currentUrl = this.router.url.split('?')[0];
       if (this.rootRoutes.includes(currentUrl)) {
         await App.exitApp();
         return;
       }
 
-      // 4) Otherwise go to root
       this.router.navigateByUrl('/places', { replaceUrl: true });
     });
   }
