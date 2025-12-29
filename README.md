@@ -82,12 +82,13 @@ ionic serve
   
  Android Setup  
 1) Build and add Android platform  
-ionic build  
+ionic build
+npm install @capacitor/android@7
 npx cap add android  
 npx cap sync android  
 npx cap open android   
   
-2) Add Android permissions (Camera / Storage)  
+3) Add Android permissions (Camera / Storage)  
   
 Edit:  
 android/app/src/main/AndroidManifest.xml  
@@ -118,12 +119,13 @@ Note: On older Android versions you may also need:
 
  iOS Setup  
 1) Add iOS platform  
-ionic build  
+ionic build
+npm install @capacitor/ios@7  
 npx cap add ios  
 npx cap sync ios  
 npx cap open ios  
 
-2) Add iOS permissions (Camera / Photos)  
+3) Add iOS permissions (Camera / Photos)  
 
 Open the iOS project in Xcode, then update:  
 ios/App/App/Info.plist  
@@ -142,6 +144,8 @@ Example:
 <string>We need photo library access to attach photos to your journal entries.</string>  
 
 🎨 App Icons + Splash Screen  
+
+npm i @capacitor/splash-screen@7
   
 If your project includes:  
   
