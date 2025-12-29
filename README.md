@@ -72,16 +72,58 @@ Windows cannot produce a real .ipa build directly (details below)
 
 🚀 Getting Started (Run Locally)  
 1) Clone the repo  
-bash  
 Copy code
 git clone [https://github.com/Ayush20076564/TourSnap-App.git](https://github.com/Ayush20076564/toursnap-dublin)  
 cd TourSnap-App  
 2) Install dependencies  
-bash  
-Copy code  
+
 npm install  
 3) Run in browser  
-bash  
-Copy code  
+
 ionic serve  
 This runs the app as a web app at a local URL.  
+
+## Android Setup    
+npm install  
+ionic build  
+npx cap sync android  
+npx cap open android  
+
+## Icons + Splash Screen  
+
+If the project includes a resources/ folder with:  
+resources/icon.png  
+resources/splash.png  
+
+## Generate assets:  
+npm install -D @capacitor/assets  
+npx capacitor-assets generate  
+npx cap sync android  
+  
+## Generate APK   
+Open Android Studio:  
+npx cap open android  
+Go to: Build → Build Bundle(s) / APK(s) → Build APK(s)  
+Click Locate  
+APK output path (commonly):  
+android/app/build/outputs/apk/debug/app-debug.apk  
+
+
+
+## IOS Setup  
+npm install  
+npm install -g @ionic/cli  
+sudo gem install cocoapods  
+npx cap add ios  
+ionic build  
+npx cap sync ios  
+
+
+## Icons + Splash Screen 
+
+resources/icon.png  
+resources/splash.png  
+Generate assets:  
+npm install -D @capacitor/assets  
+npx capacitor-assets generate  
+npx cap sync ios  
