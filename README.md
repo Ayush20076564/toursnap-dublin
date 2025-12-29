@@ -55,8 +55,7 @@ Make sure you have these installed:
   npm i -g @ionic/cli  
 Angular CLI (optional but useful)  
   
-bash  
-Copy code  
+  
 npm i -g @angular/cli  
 For Android builds  
 Android Studio  
@@ -89,6 +88,8 @@ ionic build
 npx cap add android  
 npx cap sync android  
 npx cap open android  
+
+Add uses-permissions in app/main/androidfest.xml
 
 ## Icons + Splash Screen  
 
